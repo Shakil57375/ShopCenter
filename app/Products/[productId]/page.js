@@ -1,10 +1,11 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import products from "../../data/data.json";
 import Navbar from "@/app/components/Navbar";
 import Image from "next/image";
+import Link from "next/link";
 
 const SingleProduct = ({ params }) => {
     const { productId } = params;
@@ -16,8 +17,6 @@ const SingleProduct = ({ params }) => {
         price,
         discountPercentage,
         rating,
-        stock,
-        brand,
         category,
         thumbnail,
         images,
@@ -25,7 +24,7 @@ const SingleProduct = ({ params }) => {
 
     const [selectedImage, setSelectedImage] = useState(thumbnail);
 
-    const handleImageClick = ( imageUrl) => {
+    const handleImageClick = (imageUrl) => {
         setSelectedImage(imageUrl);
     };
 
@@ -45,7 +44,12 @@ const SingleProduct = ({ params }) => {
                             />
                             <div className="flex gap-4 mt-4">
                                 {images.map((imageUrl, index) => (
-                                    <div key={index} onClick={() => handleImageClick(imageUrl)}>
+                                    <div
+                                        key={index}
+                                        onClick={() =>
+                                            handleImageClick(imageUrl)
+                                        }
+                                    >
                                         <Image
                                             src={imageUrl}
                                             width={100}
@@ -61,7 +65,12 @@ const SingleProduct = ({ params }) => {
                             <h1 className="italic text-xl lg:text-3xl font-serif font-semibold">
                                 {title}
                             </h1>
-                            <span className="text-[#919090] my-3">{category}</span>
+                            <Link
+                                href={`/category/${category}`}
+                                className="text-[#919090] my-3"
+                            >
+                                {category}
+                            </Link>
                             <div className="mt-3 flex items-center justify-start gap-1">
                                 <Rating
                                     style={{ maxWidth: 180 }}

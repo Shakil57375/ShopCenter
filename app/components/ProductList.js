@@ -14,7 +14,7 @@ const ProductList = ({ product }) => {
                     {product.title}
                 </p>
                 <span className="text-[#919090]">
-                    <p >{product.category}</p>
+                    <p>{product.category}</p>
                 </span>
             </h2>
             <p className="text-[#919090] text-sm ">{product.description}</p>
