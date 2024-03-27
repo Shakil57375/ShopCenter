@@ -25,7 +25,7 @@ const ProductList = ({ product }) => {
                 <span className="text-[#919090]">
                     {isClient ? (
                         <Link href={`category/${product.category}`}>
-                            <>{product.category}</>
+                            {product.category}
                         </Link>
                     ) : (
                         <p>{product.category}</p>
