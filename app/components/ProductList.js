@@ -1,4 +1,13 @@
+import Link from "next/link";
+import { useEffect, useState } from "react";
+
 const ProductList = ({ product }) => {
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+
     return (
         <>
             <div
@@ -6,15 +15,21 @@ const ProductList = ({ product }) => {
                 style={{
                     backgroundImage: `url(${product.thumbnail} )`,
                     backgroundSize: "cover",
-                    backgroundPosition : "center"
+                    backgroundPosition: "center",
                 }}
             ></div>
             <h2 className="text-sm lg:text-base mt-2">
-                <p className="text-base font-bold" href="./productPage.html">
-                    {product.title}
+                <p className="text-base font-bold">
+                    <p href="./productPage.html">{product.title}</p>
                 </p>
                 <span className="text-[#919090]">
-                    <p>{product.category}</p>
+                    {isClient ? (
+                        <Link href={`category/${product.category}`}>
+                            <>{product.category}</>
+                        </Link>
+                    ) : (
+                        <p>{product.category}</p>
+                    )}
                 </span>
             </h2>
             <p className="text-[#919090] text-sm ">{product.description}</p>
