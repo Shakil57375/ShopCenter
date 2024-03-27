@@ -1,8 +1,6 @@
-import Link from "next/link";
-
 const ProductList = ({ product }) => {
     return (
-        <div>
+        <>
             <div
                 className="relative delay-150 w-180px lg:w-[270px] h-[205px] lg:h-[310px] bg-[#f8f8f8] transition-all duration-3000 ease-in-out transform"
                 style={{
@@ -12,11 +10,11 @@ const ProductList = ({ product }) => {
                 }}
             ></div>
             <h2 className="text-sm lg:text-base mt-2">
-                <Link className="text-base font-bold" href="./productPage.html">
+                <p className="text-base font-bold" href="./productPage.html">
                     {product.title}
-                </Link>
+                </p>
                 <span className="text-[#919090]">
-                    <Link href="./category.html">{product.category}</Link>
+                    <p >{product.category}</p>
                 </span>
             </h2>
             <p className="text-[#919090] text-sm ">{product.description}</p>
@@ -27,7 +25,7 @@ const ProductList = ({ product }) => {
                 </span>{" "}
                 {product?.discountPercentage}
             </p>
-        </div>
+        </>
     );
 };
 
