@@ -5,7 +5,6 @@ const Categories = ({ category }) => {
     const CategoryBasedProducts = products.products.filter(
         (product) => product.category === category
     );
-    console.log(CategoryBasedProducts);
     return (
         <div>
             <main>
