@@ -1,6 +1,7 @@
 import React from "react";
 import products from "../data/data.json";
 import CategoryProduct from "./CategoryProduct";
+import Link from "next/link";
 const Categories = ({ category }) => {
     const CategoryBasedProducts = products.products.filter(
         (product) => product.category === category
@@ -13,28 +14,44 @@ const Categories = ({ category }) => {
                         <button class="hover:border-b border-black block h-6 box-border mt-4">
                             All
                         </button>
-                        <button class="hover:border-b border-black block h-6 box-border mt-5">
+                        <Link
+                            href={`/category/smartphones`}
+                            class="hover:border-b border-black block h-6 box-border mt-5"
+                        >
                             Smartphones
-                        </button>
-                        <button class="hover:border-b border-black block h-6 box-border mt-5">
+                        </Link>
+                        <Link
+                            href={`/category/laptops`}
+                            class="hover:border-b border-black block h-6 box-border mt-5"
+                        >
                             Laptops
-                        </button>
-                        <button class="hover:border-b border-black block h-6 box-border mt-5">
+                        </Link>
+                        <Link
+                            href={`/category/fragrances`}
+                            class="hover:border-b border-black block h-6 box-border mt-5"
+                        >
                             Fragrances
-                        </button>
-                        <button class="hover:border-b border-black block h-6 box-border mt-5">
+                        </Link>
+                        <Link
+                            href={`/category/skincare`}
+                            class="hover:border-b border-black block h-6 box-border mt-5"
+                        >
                             Skincare
-                        </button>
-                        <button class="hover:border-b border-black block h-6 box-border mt-5">
+                        </Link>
+                        <Link
+                            href={`/category/groceries`}
+                            class="hover:border-b border-black block h-6 box-border mt-5"
+                        >
                             Groceries
-                        </button>
+                        </Link>
                     </div>
                     <div class="sticky top-0 right-0 w-full lg:w-10/12 grid grid-cols-2 gap-4 lg:grid-cols-3 my-4 lg:my-10">
-                        {
-                            CategoryBasedProducts.map((product) => (
-                                <CategoryProduct key={product.id} product={product} />
-                            ))
-                        }
+                        {CategoryBasedProducts.map((product) => (
+                            <CategoryProduct
+                                key={product.id}
+                                product={product}
+                            />
+                        ))}
                     </div>
                 </section>
             </main>
